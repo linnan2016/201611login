@@ -34,7 +34,7 @@ app.post('/signup', function (req, res) {
     var obj = req.body;
     getCustoms(function (data) {
         var user=data.find(function (item) {
-            return item['username']==obj['username']
+            return item['username']==obj['username'];
         });
         if(user){
             req.session.error='用户名重复，请您重新填写';
@@ -65,7 +65,7 @@ app.post('/signin', function (req, res) {
             req.session.error='';
             res.redirect('/welcome');
         }else{
-            req.session.error='用户名或密码输入错误';
+            req.session.error='用户名或密码输入错误，请重新登录';
             res.redirect('/signin');
         }
     })
